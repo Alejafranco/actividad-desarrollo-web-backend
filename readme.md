@@ -8,3 +8,8 @@
 ## SCRIPT BASE DE DATOS
 1. create database universidad;
 2. create table personas ( id serial not null primary key, name varchar not null,  email varchar not null);
+
+### Librerias:
+- https://expressjs.com/es/ `sirve para crear los endpoint (url) de una manera rápida y segura.`
+- https://www.npmjs.com/package/nodemon `Automatically restarting the node application when file changes in the directory are detected.`
+- https://node-postgres.com/ `Permite que nuetra API (back) se conecte con nuestra BD`
