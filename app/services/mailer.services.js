@@ -7,8 +7,8 @@ class NodemailService {
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-                user: 'mafa1008@gmail.com', // generated ethereal user
-                pass: 'livonsjuoqeincxm', // generated ethereal password
+                user: 'testeobackend4569852@gmail.com', // generated ethereal user
+                pass: 'pbqndiuprskwsdpc', // generated ethereal password
             },
         });
     }

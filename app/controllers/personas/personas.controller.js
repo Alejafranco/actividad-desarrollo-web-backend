@@ -4,6 +4,9 @@ const _pg = new PostgresService();
 //Servicio de Nodemailer
 const NodemailService = require('../../services/mailer.services');
 const _NodemailService = new NodemailService();
+//Servicio de excelJS
+const ExcelService = require('../../services/excel.service');
+const _ExcelService = new ExcelService();
 
 /**
  * Método de consultar todas las personas
@@ -25,6 +28,12 @@ const getPersonas = async (req, res) => {
 
 };
 
+/**
+ * Metodo para enviar un correo de bienvenida
+ * @param {String} name 
+ * @param {String} email 
+ * @returns 
+ */
 const enviar = async (name, email) => {
     try {
         return await _NodemailService.getTransporter().sendMail({
@@ -37,7 +46,6 @@ const enviar = async (name, email) => {
         console.log('error de enviar correo');
         console.log(error);
     }
-
 };
 
 /**
@@ -49,8 +57,9 @@ const enviar = async (name, email) => {
 const createPersonas = async (req, res) => {
     try {
         let persona = req.body;
-        let sql = `INSERT INTO public.personas("name", email) VALUES('${persona.name}', '${persona.email}');`;
-        let result = await _pg.executeSql(sql);
+        let sql = `INSERT INTO public.personas("name", email) VALUES($1, $2);`;
+        let data = [persona.name, persona.email];
+        let result = await _pg.executeSql(sql, data);
         console.log(result);
         await enviar(persona.name, persona.email);
         return res.send({
@@ -63,4 +72,24 @@ const createPersonas = async (req, res) => {
     }
 };
 
-module.exports = { getPersonas, createPersonas };
+const creteReportPersonas = async (req, res) => {
+    try {
+        let sql = 'select * from personas';
+        let result = await _pg.executeSql(sql);
+        let rows = result.rows;
+        await _ExcelService.createSheet(rows);
+        return res.send({
+            ok: true,
+            mensaje: "Reporte excel creado",
+            contenido: "http://localhost:3001/reportes/reportePersonas.xlsx"
+        })
+    } catch (error) {
+        return res.send({
+            ok: false,
+            mensaje: "Error creando reporte tabla personas",
+            contenido: error
+        })
+    }
+}
+
+module.exports = { getPersonas, createPersonas, creteReportPersonas};

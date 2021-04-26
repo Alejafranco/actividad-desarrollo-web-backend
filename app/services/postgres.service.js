@@ -8,8 +8,8 @@ class PostgresService{
         );
     }
 
-    async executeSql(sql){
-        let result = await this.pool.query(sql);
+    async executeSql(sql, data){
+        let result = await this.pool.query(sql, data);
         return result;
     }
 };

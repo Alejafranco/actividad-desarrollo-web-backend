@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Alejafranco/actividad-desarrollo-web-backend#readme",
   "dependencies": {
+    "exceljs": "^4.2.1",
     "express": "^4.17.1",
     "nodemailer": "^6.5.0",
     "pg": "^8.6.0"
