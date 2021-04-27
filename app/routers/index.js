@@ -6,7 +6,7 @@ const _personaController = require('../controllers/personas/personas.controller'
 router
   .get("/personas", _personaController.getPersonas)
   .post("/personas", _personaController.createPersonas)
-  .get("/reporte", _personaController.creteReportPersonas);
+  .get("/reporte", _personaController.createReportPersonas);
 
 
 module.exports = router;

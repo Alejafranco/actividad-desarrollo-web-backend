@@ -40,7 +40,9 @@ const enviar = async (name, email) => {
             from: '"Maria Alejandra" <mafa1008@gmail.com>', // sender address
             to: email, // list of receivers
             subject: `BIENVENID@ ❤ ${name}`, // Subject line
-            text: "Bienvenido a la universidad :)",
+            html: `<h1>Hola ${name}</h1><hr></br>
+                    <p>¡Bienvenido a la Universidad!, gracias por registrarte.</p> </br>
+                    <img src="https://i.pinimg.com/originals/46/74/3b/46743bf8aaf905cf55e2720384845bc1.gif">`,
         });
     } catch (error) {
         console.log('error de enviar correo');
@@ -72,7 +74,13 @@ const createPersonas = async (req, res) => {
     }
 };
 
-const creteReportPersonas = async (req, res) => {
+/**
+ * Metodo para crear un reporte en excel de la tabla personas
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
+const createReportPersonas = async (req, res) => {
     try {
         let sql = 'select * from personas';
         let result = await _pg.executeSql(sql);
@@ -92,4 +100,4 @@ const creteReportPersonas = async (req, res) => {
     }
 }
 
-module.exports = { getPersonas, createPersonas, creteReportPersonas};
+module.exports = { getPersonas, createPersonas, createReportPersonas };

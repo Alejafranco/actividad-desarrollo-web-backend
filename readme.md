@@ -13,3 +13,7 @@
 - https://expressjs.com/es/ `sirve para crear los endpoint (url) de una manera rápida y segura.`
 - https://www.npmjs.com/package/nodemon `Automatically restarting the node application when file changes in the directory are detected.`
 - https://node-postgres.com/ `Permite que nuetra API (back) se conecte con nuestra BD`
+
+### URL
+- http://localhost:3001/personas visualiza el JSON de 'Personas'
+- http://localhost:3001/reporte visualiza el link (dar click) para descargar el reporte de la tabla 'Personas'
