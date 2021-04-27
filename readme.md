@@ -10,9 +10,11 @@
 2. create table personas ( id serial not null primary key, name varchar not null,  email varchar not null);
 
 ### Librerias:
-- https://expressjs.com/es/ `sirve para crear los endpoint (url) de una manera rápida y segura.`
-- https://www.npmjs.com/package/nodemon `Automatically restarting the node application when file changes in the directory are detected.`
-- https://node-postgres.com/ `Permite que nuetra API (back) se conecte con nuestra BD`
+- https://expressjs.com/es/ sirve para crear los endpoint (url) de una manera rápida y segura.
+- https://www.npmjs.com/package/nodemon Automatically restarting the node application when file changes in the directory are detected.
+- https://node-postgres.com/ Permite que nuetra API (back) se conecte con nuestra BD
+- https://nodemailer.com/ Permite enviar un email
+- https://www.npmjs.com/package/exceljs Permite realizar un archivo excel con los registros de una tabla de la BD
 
 ### URL
 - http://localhost:3001/personas visualiza el JSON de 'Personas'
